@@ -1,5 +1,7 @@
 package edu.mum.cs.projects.attendance.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -9,8 +11,6 @@ import org.springframework.stereotype.Service;
 import edu.mum.cs.projects.attendance.domain.entity.CustomUserDetails;
 import edu.mum.cs.projects.attendance.domain.entity.Users;
 import edu.mum.cs.projects.attendance.repository.UsersRepository;
-
-import java.util.Optional;
 
 @Service
 public class CustomUserDetailsService implements UserDetailsService {

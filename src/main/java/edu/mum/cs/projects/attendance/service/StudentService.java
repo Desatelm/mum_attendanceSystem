@@ -22,13 +22,18 @@ public interface StudentService {
 	static final StudentService INSTANCE = new StudentServiceImpl();
 
 	List<Student> getStudentsByEntry(String entryDate);
-	List<Student> getAllStudents();
-	Student getStudentById(String studentId);
+
+	// added fire group
+	Student getStudentsById(String id);
+
+	public List<Student> getAllStudents();
 
 	String getBarcodeId(String studentId);
 
 	static StudentService getInstance() {
 		return INSTANCE;
 	}
+
+	void createStudent(Student student);
 
 }

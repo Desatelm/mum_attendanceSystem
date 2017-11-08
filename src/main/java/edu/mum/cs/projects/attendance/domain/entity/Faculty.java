@@ -1,16 +1,8 @@
 package edu.mum.cs.projects.attendance.domain.entity;
 
-import java.util.Set;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.Immutable;
 
@@ -96,6 +88,6 @@ public class Faculty implements Identifiable<Long> {
 	@Override
 	public String toString() {
 		return firstName + " " + lastName;
-	}	
+	}
 
 }

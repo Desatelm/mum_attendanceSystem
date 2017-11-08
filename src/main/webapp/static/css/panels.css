@@ -1,0 +1,13 @@
+.panel-clear{
+	padding: 0px;
+}
+
+.panel-clear > div{
+	padding:0px;
+}
+.panel-clear > div >table{
+	margin-bottom:0px;
+}
+.panel-clear table{
+	margin-bottom:0px;
+}

@@ -6,6 +6,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Collection;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -19,7 +20,9 @@ import org.springframework.stereotype.Service;
 
 import edu.mum.cs.projects.attendance.domain.entity.BarcodeRecord;
 import edu.mum.cs.projects.attendance.domain.entity.Location;
+import edu.mum.cs.projects.attendance.domain.entity.Student;
 import edu.mum.cs.projects.attendance.domain.entity.Timeslot;
+import edu.mum.cs.projects.attendance.repository.BarcodeRecordRepository;
 import edu.mum.cs.projects.attendance.repository.LocationRepository;
 import edu.mum.cs.projects.attendance.repository.TimeslotRepository;
 import edu.mum.cs.projects.attendance.util.DateUtil;
@@ -34,6 +37,13 @@ public class BarcodeServiceImpl implements BarcodeService {
 
 	@Autowired
 	private TimeslotRepository timeslotRepository;
+
+	// fire group
+	@Autowired
+	private StudentService studentService;
+	// fire group
+	@Autowired
+	private BarcodeRecordRepository barcodeRecordRepository;
 
 	private static volatile Collection<BarcodeRecord> barcodeRecords;
 
@@ -115,6 +125,30 @@ public class BarcodeServiceImpl implements BarcodeService {
 		Location location = locationRepository.findOne(parts[3]);
 
 		return new BarcodeRecord(barcode, date, time, timeslot, location);
+	}
+
+	/// added by fire group
+	public List<BarcodeRecord> getBarcodeRecordsListByDateAndStudentID(Date startDate, String studentId) {
+
+		Student student = studentService.getStudentsById(studentId);
+		return barcodeRecordRepository.findByDate(startDate).stream()
+				.filter(b -> b.getBarcode().equals(student.getBarcode())).collect(Collectors.toList());
+	}
+
+	public void deleteBarcodeRecordByBarcodeID(Long barcodeid) {
+
+		barcodeRecordRepository.deleteById(barcodeid);
+	}
+
+	public void addBarcodeRecordList(LocalDate date, String studentId) {
+		Student student = studentService.getStudentsById(studentId);
+		LocalTime time = LocalTime.of(00, 00);
+		Timeslot timeslot = timeslotRepository.findOne("AM");
+		Location location = locationRepository.findOne("DB");
+
+		BarcodeRecord newBarcoderecord = new BarcodeRecord(student.getBarcode(), date, time, timeslot, location);
+
+		barcodeRecordRepository.save(newBarcoderecord);
 	}
 
 	// private static Location getLocationById(String id) {

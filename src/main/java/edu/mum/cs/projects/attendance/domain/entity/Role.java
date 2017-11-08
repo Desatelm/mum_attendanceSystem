@@ -1,35 +1,38 @@
 package edu.mum.cs.projects.attendance.domain.entity;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "role")
 public class Role {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "role_id")
-    private int roleId;
+	@Id
+	@Column(name = "role_id")
+	private int roleId;
 
-    @Column(name = "role")
-    private String role;
+	@Column(name = "role")
+	private String role;
 
-    public Role() {
-    }
+	public Role() {
+	}
 
-    public int getRoleId() {
-        return roleId;
-    }
+	public int getRoleId() {
+		return roleId;
+	}
 
-    public void setRoleId(int roleId) {
-        this.roleId = roleId;
-    }
+	public void setRoleId(int roleId) {
+		this.roleId = roleId;
+	}
 
-    public String getRole() {
-        return role;
-    }
+	public String getRole() {
+		return role;
+	}
 
-    public void setRole(String role) {
-        this.role = role;
-    }
+	public void setRole(String role) {
+		this.role = role;
+	}
+
 }

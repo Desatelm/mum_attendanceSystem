@@ -1,6 +1,7 @@
 package edu.mum.cs.projects.attendance.repository;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -25,4 +26,6 @@ import edu.mum.cs.projects.attendance.domain.entity.AcademicBlock;
 @Repository
 public interface AcademicBlockRepository extends CrudRepository<AcademicBlock, String> {
 	AcademicBlock findByBeginDate(Date beginDate);
+
+	List<AcademicBlock> findAll();
 }

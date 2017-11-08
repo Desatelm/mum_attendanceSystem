@@ -36,6 +36,4 @@ public interface AttendanceService {
 
 	void countAttendancePerDay();
 
-	void creatUser();
-
 }

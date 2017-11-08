@@ -28,4 +28,11 @@ public interface BarcodeRecordRepository extends CrudRepository<BarcodeRecord, I
 
 	List<BarcodeRecord> findByDateBetween(Date beginDate, Date endDate);
 
+	// fire group
+	List<BarcodeRecord> findByDate(Date record);
+
+	// fire group
+	void deleteById(long barcodeid);
+	/* List<BarcodeRecord> findByBarstudentId(String barcode); */
+
 }

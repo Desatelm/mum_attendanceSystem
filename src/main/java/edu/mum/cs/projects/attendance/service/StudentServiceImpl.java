@@ -52,6 +52,7 @@ public class StudentServiceImpl implements StudentService {
 		return barcodeMap;
 	}
 
+	// added by fire group
 	@Override
 	public String getBarcodeId(String studentId) {
 		return getBarcodeMap().get(studentId);
@@ -63,13 +64,18 @@ public class StudentServiceImpl implements StudentService {
 	}
 
 	@Override
-	public List<Student> getAllStudents() {		
-		return (List<Student>) studentRepository.findAll();
+	public Student getStudentsById(String id) {
+		return studentRepository.findBystudentId(id);
 	}
 
 	@Override
-	public Student getStudentById(String studentId) {		
-		return studentRepository.findByStudentId(studentId);
+	public List<Student> getAllStudents() {
+		return studentRepository.findAll();
 	}
 
+	@Override
+	public void createStudent(Student student) {
+		studentRepository.save(student);
+
+	}
 }

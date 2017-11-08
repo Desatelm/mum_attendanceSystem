@@ -1,0 +1,517 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.0.final using JasperReports Library version 6.4.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" >
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<subDataset name="Dataset1" uuid="c196ac98-8a70-42ce-bcd6-21cfb30288e4">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+	</subDataset>
+	<subDataset name="Dataset2" uuid="aa2222cb-cd62-486f-9b09-150616a5d3fc">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="id" class="java.lang.String"/>
+		<field name="date" class="java.lang.String"/>
+		<field name="attendance2" class="java.lang.Integer"/>
+		<field name="attendance3" class="java.lang.Integer"/>
+		<field name="attendance4" class="java.lang.Integer"/>
+		<field name="attendance5" class="java.lang.Integer"/>
+		<field name="attendance1" class="java.lang.Integer"/>
+		<field name="attendance" class="java.lang.Integer"/>
+		<variable name="attendance11" class="java.lang.Integer" calculation="Count">
+			<variableExpression><![CDATA[$F{attendance1}]]></variableExpression>
+		</variable>
+		<variable name="attendance1" class="java.lang.Integer" calculation="Count">
+			<variableExpression><![CDATA[$F{attendance}]]></variableExpression>
+		</variable>
+		<variable name="attendance2" class="java.lang.Integer" resetType="Column" calculation="Count">
+			<variableExpression><![CDATA[$F{attendance}]]></variableExpression>
+		</variable>
+	</subDataset>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="id" class="java.lang.String"/>
+	<field name="fname" class="java.lang.String"/>
+	<field name="attendance2" class="java.lang.Integer"/>
+	<field name="attendance3" class="java.lang.Integer"/>
+	<field name="attendance4" class="java.lang.Integer"/>
+	<field name="attendance5" class="java.lang.Integer"/>
+	<field name="attendance1" class="java.lang.Integer"/>
+	<field name="attendance6" class="java.lang.Integer"/>
+	<field name="attendance" class="java.lang.Integer"/>
+	<field name="attendance7" class="java.lang.Integer"/>
+	<field name="attendance8" class="java.lang.Integer"/>
+	<field name="attendance9" class="java.lang.Integer"/>
+	<field name="attendance10" class="java.lang.Integer"/>
+	<field name="attendance11" class="java.lang.Integer"/>
+	<field name="attendance12" class="java.lang.Integer"/>
+	<field name="attendance13" class="java.lang.Integer"/>
+	<field name="attendance14" class="java.lang.Integer"/>
+	<field name="attendance15" class="java.lang.Integer"/>
+	<field name="attendance16" class="java.lang.Integer"/>
+	<field name="attendance17" class="java.lang.Integer"/>
+	<field name="attendance18" class="java.lang.Integer"/>
+	<field name="attendance19" class="java.lang.Integer"/>
+	<field name="CourseID" class="java.lang.String"/>
+	<field name="OFferingID" class="java.lang.Long"/>
+	<field name="CourseName" class="java.lang.String"/>
+	<field name="percentage" class="java.lang.Double"/>
+	<field name="extragrade" class="java.lang.Double"/>
+	<field name="attendance20" class="java.lang.Integer"/>
+	<field name="attendance21" class="java.lang.Integer"/>
+	<field name="attendance22" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="49" splitType="Stretch">
+			<staticText>
+				<reportElement x="200" y="-10" width="130" height="20" uuid="a4fbc7d3-0ab9-4e28-8f90-3eee0d21ec82"/>
+				<textElement>
+					<font fontName="Baskerville Old Face" size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Attendance Report]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="65" y="10" width="100" height="30" uuid="8aeb8e61-9eac-43dd-b7a9-9314d49ce14b"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{CourseID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="243" y="10" width="100" height="30" uuid="d350fe31-13ed-4275-8515-695be5810333"/>
+				<textFieldExpression><![CDATA[$F{OFferingID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="420" y="9" width="100" height="30" uuid="04b84a79-7f64-4849-8789-eb1da0c04917"/>
+				<textFieldExpression><![CDATA[$F{CourseName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="19" y="10" width="46" height="30" uuid="af1062a1-34a8-41c8-ae1e-ad6f8214b850"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[CourseID:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="189" y="10" width="54" height="30" uuid="b737599f-419f-4666-a617-6418a4629ce0"/>
+				<textElement>
+					<font isBold="false" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[OfferingID: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="356" y="10" width="64" height="30" uuid="1483fd80-5dc3-4670-9d70-3b880ebd3948"/>
+				<textElement>
+					<font isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[CourseName: ]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.HorizontalRowLayout"/>
+			<staticText>
+				<reportElement x="0" y="0" width="30" height="36" uuid="01797c66-3eaf-46b4-b6d7-25422b73fb4b"/>
+				<box>
+					<topPen lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<text><![CDATA[StudentID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="0" width="21" height="36" uuid="b9f04fc1-40bb-45d5-b743-8781e3205127"/>
+				<text><![CDATA[Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="51" y="0" width="21" height="36" uuid="0a330a62-cc3b-4c56-8464-2a1151029801"/>
+				<text><![CDATA[d1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="72" y="0" width="21" height="36" uuid="6cc89153-9386-44ef-a1a5-f090252d68b2"/>
+				<text><![CDATA[d2]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="93" y="0" width="21" height="36" uuid="c430040f-2249-4ff3-9204-3dc7532bd9b2"/>
+				<text><![CDATA[d3]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="114" y="0" width="21" height="36" uuid="51ce284b-1e6d-4042-a1af-445342eb603e"/>
+				<text><![CDATA[d4]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="135" y="0" width="21" height="36" uuid="c3afea59-8232-414c-a15c-2de63eec650c"/>
+				<text><![CDATA[d5]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="156" y="0" width="21" height="36" uuid="6e052899-a494-42fe-afd9-23c2fce0cdc1"/>
+				<text><![CDATA[d6]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="177" y="0" width="21" height="36" uuid="3e651b33-03eb-4982-9c27-37fe34999487"/>
+				<text><![CDATA[d7]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="198" y="0" width="21" height="36" uuid="7f172e3f-03b3-40b6-b216-62443bd9c622"/>
+				<text><![CDATA[d8]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="219" y="0" width="21" height="36" uuid="e1207eef-fd43-4783-8ef5-e6d7a79582d4"/>
+				<text><![CDATA[d9]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="240" y="0" width="21" height="36" uuid="627b383d-56b6-4bb7-b09c-11ea71bdce45"/>
+				<text><![CDATA[d10]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="261" y="0" width="21" height="36" uuid="cc57fcbc-02a5-4396-ab9f-7bce437a2aea"/>
+				<text><![CDATA[d11]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="282" y="0" width="21" height="36" uuid="d3e1ac9c-3621-4726-b72f-a0f6ed8a6f51"/>
+				<text><![CDATA[d12]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="303" y="0" width="21" height="36" uuid="5adf8d1e-ae9a-480d-bf81-20e29d0fb83b"/>
+				<text><![CDATA[d13]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="324" y="0" width="21" height="36" uuid="78144dec-6e31-4cfc-a76c-84655e5803ac"/>
+				<text><![CDATA[d14]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="345" y="0" width="21" height="36" uuid="1f8b6cef-642c-4866-a1b8-07ba31a955ba"/>
+				<text><![CDATA[d15]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="366" y="0" width="21" height="36" uuid="7a8d83f8-91d2-4342-ae36-fda2892d3da3"/>
+				<text><![CDATA[d16]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="387" y="0" width="21" height="36" uuid="239388f6-bc05-43e5-98cc-a13765500900"/>
+				<text><![CDATA[d17]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="408" y="0" width="21" height="36" uuid="72c0b0a6-5748-4406-ac54-48924dd5bea3"/>
+				<text><![CDATA[d18]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="429" y="0" width="21" height="36" uuid="2e3dd4ad-2e2b-4c5f-bed0-7a1055671b7b"/>
+				<text><![CDATA[d19]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="450" y="0" width="21" height="36" uuid="11e64df2-d676-4095-800d-a7600b26cd23"/>
+				<text><![CDATA[d20]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="471" y="0" width="21" height="36" uuid="5185d9ef-0071-414d-ad18-12103a165b18"/>
+				<text><![CDATA[d21]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="492" y="0" width="21" height="36" uuid="bff161bb-8ebb-464f-aa38-5a94b7904891"/>
+				<text><![CDATA[d22]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="513" y="0" width="21" height="36" uuid="27a5fcd8-7cd5-4f47-9278-fe4874ff8cd8"/>
+				<text><![CDATA[% perc]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="534" y="0" width="21" height="36" uuid="d3d72145-af1a-4982-963f-e6e99da5dbd4"/>
+				<text><![CDATA[extraG]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="66" splitType="Stretch">
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.grid.JSSGridBagLayout"/>
+			<textField>
+				<reportElement positionType="Float" x="1" y="0" width="29" height="66" uuid="2b3cba0e-0519-47a3-8474-f04ee46e37c0">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.layout.grid.x" value="1"/>
+					<property name="com.jaspersoft.layout.grid.y" value="-1"/>
+					<property name="com.jaspersoft.layout.grid.weight.x" value="1.0"/>
+					<property name="com.jaspersoft.layout.grid.weight.y" value="1.0"/>
+					<property name="com.jaspersoft.layout.grid.rowspan" value="1"/>
+					<property name="com.jaspersoft.layout.grid.colspan" value="10"/>
+					<property name="com.jaspersoft.layout.grid.weight.fixed" value="false"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="30" y="0" width="21" height="66" uuid="f39564c3-3d13-4387-ad16-fae1978fa690">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.layout.grid.x" value="-1"/>
+					<property name="com.jaspersoft.layout.grid.y" value="-1"/>
+					<property name="com.jaspersoft.layout.grid.weight.x" value="1.0"/>
+					<property name="com.jaspersoft.layout.grid.weight.y" value="1.0"/>
+					<property name="com.jaspersoft.layout.grid.rowspan" value="1"/>
+					<property name="com.jaspersoft.layout.grid.colspan" value="9"/>
+					<property name="com.jaspersoft.layout.grid.weight.fixed" value="false"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{fname}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="51" y="0" width="21" height="66" uuid="13f50b31-1e62-4bf0-8bc0-2f69df60ad1a"/>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{attendance1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="72" y="0" width="21" height="66" uuid="56959ad8-8b27-48f2-acc3-4cba8fc6c027"/>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{attendance2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="93" y="0" width="21" height="66" uuid="f78fc18d-8a23-4b8f-b512-b9c69416a821"/>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{attendance3}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="114" y="0" width="21" height="66" uuid="2c819a6d-8138-4ca7-aaed-319a13651df4"/>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{attendance4}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="135" y="0" width="21" height="66" uuid="c686f866-9c04-40d8-a3e8-f8294b600bba"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{attendance5}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="156" y="0" width="21" height="66" uuid="9c5914ec-e8f1-4282-a44f-05ffe90be886"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{attendance6}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="177" y="0" width="21" height="66" uuid="8b3ed6cf-5345-4f90-be97-bfb1b9a17824"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{attendance7}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="198" y="0" width="21" height="66" uuid="a2767670-0957-4b14-8326-9637ff685285"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{attendance8}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="219" y="0" width="21" height="66" uuid="b3d34ae4-8d6d-4792-bb38-8eb223af0dfc"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{attendance9}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="240" y="0" width="21" height="66" uuid="457ac13a-bccd-4471-96ad-9388def584d1"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{attendance10}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="261" y="0" width="21" height="66" uuid="7ac69b68-b3fb-4865-9e41-f4f5cbeb650b"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{attendance11}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="282" y="0" width="21" height="66" uuid="70d1d779-635c-4cc1-825d-dfd0f6badd05"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{attendance12}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="303" y="0" width="21" height="66" uuid="913c9750-fa45-42a2-bf9f-a4c0d1c8d020"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{attendance13}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="324" y="0" width="21" height="66" uuid="238cf299-aa67-4618-a90f-8c4b150eb2cb"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{attendance14}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="345" y="0" width="21" height="66" uuid="9face1c9-13fc-43ff-accc-3e3c1ddad89e"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{attendance15}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="366" y="0" width="21" height="66" uuid="0c07b827-b0e9-4215-b287-5ee816b691b3"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{attendance16}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="387" y="0" width="21" height="66" uuid="e74d4635-4881-4c1b-bf7c-69d0a20f39b3"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{attendance17}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="408" y="0" width="21" height="66" uuid="d200e51e-e2c2-4424-8ac4-61cf4f014c47"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{attendance18}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="429" y="0" width="21" height="66" uuid="7cbd71ec-d3de-487f-a089-17ef24a2e674"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{attendance19}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="450" y="0" width="21" height="66" uuid="a8470a8c-c599-4c80-904e-2bff409526ef"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{attendance20}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="471" y="0" width="21" height="66" uuid="a0ca9c55-d2a7-4944-a7b6-55ad51e0615c"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{attendance21}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="492" y="0" width="21" height="66" uuid="dc7311bc-2790-4a3b-85ab-a98de9dbbe8a"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{attendance22}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="513" y="0" width="21" height="66" uuid="e53c04f0-7d61-462d-b645-58d503e105cb"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{percentage}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="534" y="0" width="21" height="66" uuid="811e0156-9618-401c-832f-ab9c487c189e"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{extragrade}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="43" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.grid.JSSGridBagLayout"/>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

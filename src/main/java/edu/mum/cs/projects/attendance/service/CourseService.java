@@ -28,8 +28,14 @@ public interface CourseService {
 
 	List<CourseOffering> getCourseOfferings(String blockId);
 
-	List<CourseOffering> getAll();
-
 	AcademicBlock getAcademicBlock(String blockStartDate);
+
+	// added
+	CourseOffering getCourseOfferingbyID(long id);
+
+	// added
+	List<AcademicBlock> getAllAcademicBlock();
+
+	List<CourseOffering> getCourseOfferingsPastSixMonths(Long facultyId);
 
 }

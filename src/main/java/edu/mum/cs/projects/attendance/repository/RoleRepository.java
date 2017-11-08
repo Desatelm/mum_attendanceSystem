@@ -1,8 +1,11 @@
 package edu.mum.cs.projects.attendance.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
 import edu.mum.cs.projects.attendance.domain.entity.Role;
 
-public interface RoleRepository extends JpaRepository<Role, Integer>{
-
+@Repository
+public interface RoleRepository extends CrudRepository<Role, Integer> {
+	Role findByRole(String role);
 }

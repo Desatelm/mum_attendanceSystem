@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
 import edu.mum.cs.projects.attendance.service.DatabaseLoaderService;
+import edu.mum.cs.projects.attendance.service.UserService;
 
 /**
  * <h1>Maharishi University of Management<br/>
@@ -25,10 +26,13 @@ public class DatabaseLoader {
 
 	public static void main(String[] args) throws Exception {
 		ConfigurableApplicationContext context = SpringApplication.run(DatabaseLoader.class, args);
-
 		DatabaseLoaderService service = context.getBean(DatabaseLoaderService.class);
 		service.loadDatabaseFromSpreadsheet();
 		service.loadScannedBarcodesToDatabase();
+
+		UserService userService = context.getBean(UserService.class);
+		userService.creatUsers();
+		System.exit(0);
 	}
 
 }

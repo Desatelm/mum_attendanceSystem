@@ -4,14 +4,11 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.OptionalDouble;
-import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -26,11 +23,9 @@ import edu.mum.cs.projects.attendance.domain.entity.AcademicBlock;
 import edu.mum.cs.projects.attendance.domain.entity.BarcodeRecord;
 import edu.mum.cs.projects.attendance.domain.entity.CourseOffering;
 import edu.mum.cs.projects.attendance.domain.entity.Enrollment;
-import edu.mum.cs.projects.attendance.domain.entity.Role;
 import edu.mum.cs.projects.attendance.domain.entity.Session;
 import edu.mum.cs.projects.attendance.domain.entity.Student;
 import edu.mum.cs.projects.attendance.domain.entity.Timeslot;
-import edu.mum.cs.projects.attendance.domain.entity.Users;
 import edu.mum.cs.projects.attendance.ooxml.SpreadsheetWriterDAO;
 import edu.mum.cs.projects.attendance.repository.BarcodeRecordRepository;
 import edu.mum.cs.projects.attendance.util.DateUtil;
@@ -63,9 +58,6 @@ public class AttendanceServiceImpl implements AttendanceService {
 
 	@Autowired
 	BarcodeRecordRepository barcodeRecordRepository;
-	
-	@Autowired
-	private UserService userService;
 
 	@Override
 	public void countAttendancePerDay() {
@@ -91,8 +83,7 @@ public class AttendanceServiceImpl implements AttendanceService {
 	@Override
 	public void createAttendanceReportForEntry(String entryDate) {
 		List<Student> students = studentService.getStudentsByEntry(entryDate);
-		
-		
+
 		Date beginDate = new Date();
 		beginDate.setTime(0);
 		List<BarcodeRecord> records = barcodeRecordRepository.findByDateBetween(beginDate, new Date());
@@ -132,34 +123,22 @@ public class AttendanceServiceImpl implements AttendanceService {
 
 	@Override
 	public List<StudentAttendance> retrieveStudentAttendanceRecords(CourseOffering courseOffering) {
-		boolean flag = true;
+
 		List<Enrollment> enrollments = courseService.getEnrollment(courseOffering);
-		System.out.println();
+
 		if (null == enrollments || enrollments.isEmpty()) {
+			System.out.println("no enrollments found");
 			return null;
-		} 
-        Set<Role> roles = new HashSet<Role>();		
-		
-		
-		for(Enrollment student: enrollments){
-			
-			Role role =  new Role();
-			role.setRole("Student");
-			roles.add(role);
-			Users user = new Users();
-			
-			user.setStudentId(student.getStudent().getStudentId());
-			user.setName(student.getStudent().getStudentId());
-			user.setPassword(student.getStudent().getLastName()+"123");			
-			user.setActive(1);
-			
-			user.setRoles(roles);			
-			userService.createUser(user);
-			//System.out.println(userService.getUser(user.getStudentId()).getName());
-			}
-		
+		}
+
 		AcademicBlock block = courseService
 				.getAcademicBlock(DateUtil.convertDateToString(courseOffering.getStartDate()));
+
+		if (block == null) {
+			System.out.println("academic block is null");
+
+			return null;
+		}
 
 		Date beginDate = DateUtil.convertLocalDateToDate(block.getBeginDate());
 		Date endDate = DateUtil.convertLocalDateToDate(block.getEndDate());
@@ -168,12 +147,11 @@ public class AttendanceServiceImpl implements AttendanceService {
 		System.out.println("\nCreating attendance report for: " + courseOffering.getCourse() + " by "
 				+ courseOffering.getFaculty());
 
-		
 		List<StudentAttendance> studentAttendanceRecords = enrollments.stream()
 				.map(e -> new StudentAttendance(e.getStudent(), e.getOffering()))
 				.map(populateAttendanceArray(barcodeRecords, block.getSessions())).peek(System.out::println)
 				.collect(Collectors.toList());
-		
+
 		OptionalDouble average = studentAttendanceRecords.stream().mapToDouble(sa -> sa.getMeditaionPercentage())
 				.average();
 		if (average.isPresent()) {
@@ -211,58 +189,12 @@ public class AttendanceServiceImpl implements AttendanceService {
 	@Override
 	public List<StudentAttendance> createAttendanceReportForOffering(CourseOffering courseOffering) {
 		List<StudentAttendance> studentAttendanceList = retrieveStudentAttendanceRecords(courseOffering);
-		SpreadsheetWriterDAO.createAttendanceReportSpreadsheet(studentAttendanceList);
-		return studentAttendanceList;
-	}
-	@Override
-	@Transactional
-	public void creatUser(){
-         Set<Role> roles = new HashSet<Role>();
-         Users  user = userService.getUser("000-98-0196");         
-			Role role =  new Role();
-			role.setRole("STAFF");
-			Role role1 =  new Role();
-			//role1.setRole("Student");
-			roles.add(role);
-			//roles.add(role1);
-			user.setRoles(roles);
-			studentService.getStudentById(user.getStudentId());
-		/*Set<Role> roless = userService.getUser("000-98-0091").getRoles();
-		for(Role role: roless){
-			System.out.println(role.getRole());
-		}*/
-		
-		/*Set<Role> roles = new HashSet<Role>();
-		for(Student student: studentService.getStudentsByEntry("2017-02-09 00:00:00")){
-			
-			Role role =  new Role();
-			role.setRole("Student");
-			roles.add(role);
-			Users user = new Users();
-			String temp = student.getStudentId();
-			String userName = "";
-			String[] str = temp.split("-");
-			for (String st: str){
-				userName += st;
-			}
-			System.out.println(userName.substring(3));
-			user.setStudentId(student.getStudentId());
-			user.setName(userName.substring(3));
-			user.setPassword(student.getLastName()+"123");			
-			user.setActive(1);
-			user.setEmail(student.getFirstName() + student.getLastName().substring(0,1) + "@mum.edu");
-			user.setRoles(roles);			
-			userService.createUser(user);
-			System.out.println(userService.getUser(user.getStudentId()).getName());
-			}		*/	
-		
+		return SpreadsheetWriterDAO.createAttendanceReportSpreadsheet(studentAttendanceList);
 	}
 
 	@Override
 	@Transactional
 	public List<StudentAttendance> createAttendanceReportForBlock(String blockStartDate) {
-	    			
-		
 		List<StudentAttendance> errorRecords = new ArrayList<>();
 		for (CourseOffering offering : courseService.getCourseOfferings(blockStartDate)) {
 			errorRecords.addAll(createAttendanceReportForOffering(offering));
